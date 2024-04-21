@@ -9,15 +9,15 @@ services:
     ports:
       - 8080:80
     depends_on:
-      - mysql
-  mysql:
+      - mariadb
+  mariadb:
     image: mysql:latest
     environment:
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: mydatabase
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: database
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
     volumes:
-      - mysql_data:/var/lib/mysql
-volumes:
-  mysql_data:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
