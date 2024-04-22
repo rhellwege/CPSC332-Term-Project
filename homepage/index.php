@@ -30,6 +30,9 @@
 	} else {
 	    echo "0 results";
 	}
+	// cleanup Patients
+	$Patients->free_result();
+	$link->close();
 ?>
 <html>
 <head>
@@ -39,6 +42,10 @@
 	</script>
 </head>
 <body>
-
+	<form action="sample.php" method="POST">
+	Enter First Name: <input type="text" name="fname">
+	<input type="submit">
+	</form>
 
 </body>
+</html>
