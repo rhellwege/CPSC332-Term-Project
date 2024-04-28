@@ -11,12 +11,17 @@ $mysqli = new mysqli($host_name, $username, $password, $db_name);
 
 // check connection
 if ($mysqli->connect_errno) {
-    printf("MYSQL Connection failed: %s\n", $mysqli->connect_error);
+    error_log("MYSQL Connection failed: " . $mysqli->connect_error);
     exit();
 }
 
 $sql = "SELECT * FROM Professor;";
 $result = $mysqli->query($sql);
+
+if ($result === false) {
+    error_log("MYSQL query failed: " . $mysqli->error);
+    exit();
+}
 
 $table = format_sql_result($result);
 

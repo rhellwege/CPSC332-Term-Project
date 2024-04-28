@@ -4,7 +4,7 @@
 // Returns HTML string
 function format_sql_result(mysqli_result $result): string
 {
-    if ($result->num_rows == 0) {
+    if ($result->num_rows === 0) {
         return "<span>0 results</span>";
     }
 
@@ -12,22 +12,22 @@ function format_sql_result(mysqli_result $result): string
     $fields = $result->fetch_fields();
 
     // The first row of the table is the headers
-    $output = $output . "<tr>";
+    $output .= "<tr>";
     foreach ($fields as $field) {
-        $output = $output . "<th>$field->name</th>";
+        $output .= "<th>$field->name</th>";
     }
-    $output = $output . "</tr>";
+    $output .= "</tr>";
 
     // Output data of each row
     while ($row = $result->fetch_row()) {
-        $output = $output . "<tr>";
+        $output .= "<tr>";
         foreach ($row as $value) {
-            $output = $output . "<td>$value</td>";
+            $output .= "<td>$value</td>";
         }
-        $output = $output . "</tr>";
+        $output .= "</tr>";
     }
 
-    $output = $output . "</table>";
+    $output .= "</table>";
     return $output;
 }
 
