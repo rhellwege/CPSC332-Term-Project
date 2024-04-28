@@ -1,4 +1,4 @@
-USE cpsc332e7;
+USE cs332e7;
 
 DROP TABLE IF EXISTS Professor;
 CREATE TABLE Professor (
@@ -70,9 +70,8 @@ CREATE TABLE Course_Section (
 DROP TABLE IF EXISTS Course_Section_Days;
 CREATE TABLE Course_Section_Days (
 	SectionNumber INT NOT NULL,
-	Day           VARCHAR(2),
+	Day           ENUM('M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'),
 
-	CONSTRAINT  CHK_DayFormat = CHECK Day IN ("M", "T", "W", "Th", "F", "Sa", "Su"),
 	FOREIGN KEY (SectionNumber) REFERENCES Course_Section(SectionNumber),
 	PRIMARY KEY (SectionNumber, Day)
 );
@@ -104,9 +103,8 @@ DROP TABLE IF EXISTS Student_Section_Enrollment;
 CREATE TABLE Student_Section_Enrollment (
 	CWID         INT NOT NULL,
 	CourseNumber INT NOT NULL,
-	Grade        VARCHAR(2),
+	Grade        ENUM('A', 'A-', 'A+', 'B', 'B-', 'B+', 'C', 'C-', 'C+', 'D', 'D-', 'D+', 'F'),
 
-	CONSTRAINT  CHK_GradeFormat = CHECK Grade IN ("A", "A-", "A+", "B", "B-", "B+", "C", "C-", "C+", "D", "D-", "D+", "F")
 	FOREIGN KEY (CWID)            REFERENCES Student(CWID),
 	FOREIGN KEY (CourseNumber)    REFERENCES Course(CourseNumber),
 	PRIMARY KEY(CWID, CourseNumber)

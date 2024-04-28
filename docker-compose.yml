@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   php:
     build:
@@ -14,9 +14,9 @@ services:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: cpsc332e7
-      MYSQL_USER: username
-      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: cs332e7
+      MYSQL_USER: cs332e7
+      MYSQL_PASSWORD: 2wJ3Nbfa
     volumes:
       - ./mysql:/var/lib/mysql
       - ./sql:/sql

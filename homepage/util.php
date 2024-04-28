@@ -8,13 +8,14 @@ function format_sql_result(mysqli_result $result): string
         return "<span>0 results</span>";
     }
 
-    $output = "<table>";
+    $output =
+        "<table style='border-collapse: collapse; border: 1px solid black;'>";
     $fields = $result->fetch_fields();
 
     // The first row of the table is the headers
     $output .= "<tr>";
     foreach ($fields as $field) {
-        $output .= "<th>$field->name</th>";
+        $output .= "<th style='padding: 1em; border: 1px solid black; '>$field->name</th>";
     }
     $output .= "</tr>";
 
@@ -22,7 +23,7 @@ function format_sql_result(mysqli_result $result): string
     while ($row = $result->fetch_row()) {
         $output .= "<tr>";
         foreach ($row as $value) {
-            $output .= "<td>$value</td>";
+            $output .= "<td style='padding: 1em; border: 1px solid black;'>$value</td>";
         }
         $output .= "</tr>";
     }

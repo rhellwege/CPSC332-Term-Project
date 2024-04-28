@@ -4,7 +4,7 @@ include "util.php";
 echo "hello, this is php";
 $host_name = "mariadb";
 $username = "cs332e7";
-$password = "password";
+$password = "2wJ3Nbfa";
 $db_name = "cs332e7";
 
 $mysqli = new mysqli($host_name, $username, $password, $db_name);
@@ -15,7 +15,8 @@ if ($mysqli->connect_errno) {
     exit();
 }
 
-$sql = "SELECT * FROM Professor;";
+$sql =
+    "SELECT Ssn AS 'SSN', FirstName AS 'First', LastName AS 'Last' FROM Professor;";
 $result = $mysqli->query($sql);
 
 if ($result === false) {
