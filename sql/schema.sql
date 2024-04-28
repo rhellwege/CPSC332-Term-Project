@@ -3,8 +3,11 @@ USE cs332e7;
 DROP TABLE IF EXISTS Professor;
 CREATE TABLE Professor (
 	Ssn       CHAR(9) NOT NULL,
-	FirstName VARCHAR(255),
-	LastName  VARCHAR(255),
+	FirstName    VARCHAR(255),
+	LastName     VARCHAR(255),
+	StreetAdress VARCHAR(255),
+	ZipCode      CHAR(5),
+
 
 	PRIMARY KEY (Ssn)
 );
@@ -22,9 +25,9 @@ DROP TABLE IF EXISTS Department;
 CREATE TABLE Department (
 	DepartmentNumber INT NOT NULL AUTO_INCREMENT,
 	Chairperson_Ssn  CHAR(9),
-	DepartmentName   VARCHAR(255),
+	Name             VARCHAR(255),
 	OfficeLocation   VARCHAR(255),
-	DepartmentPhone  VARCHAR(255),
+	Phone            CHAR(10),
 
 	FOREIGN KEY (Chairperson_Ssn) REFERENCES Professor(Ssn),
 	PRIMARY KEY (DepartmentNumber)
@@ -69,9 +72,11 @@ CREATE TABLE Course_Section (
 
 DROP TABLE IF EXISTS Course_Section_Days;
 CREATE TABLE Course_Section_Days (
+    CourseNumber  INT NOT NULL,
 	SectionNumber INT NOT NULL,
 	Day           ENUM('M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'),
 
+	FOREIGN KEY (CourseNumber)  REFERENCES Course_Section(CourseSection),
 	FOREIGN KEY (SectionNumber) REFERENCES Course_Section(SectionNumber),
 	PRIMARY KEY (SectionNumber, Day)
 );
@@ -83,7 +88,7 @@ CREATE TABLE Student (
 	Address                VARCHAR(255),
 	FirstName              VARCHAR(255),
 	LastName               VARCHAR(255),
-	StudentPhone           CHAR(7),
+	Phone           CHAR(7),
 
 	FOREIGN KEY (Major_DepartmentNumber) REFERENCES Department(DepartmentNumber),
 	PRIMARY KEY (CWID)
@@ -101,11 +106,13 @@ CREATE TABLE Student_Minor (
 
 DROP TABLE IF EXISTS Student_Section_Enrollment;
 CREATE TABLE Student_Section_Enrollment (
-	CWID         INT NOT NULL,
-	CourseNumber INT NOT NULL,
-	Grade        ENUM('A', 'A-', 'A+', 'B', 'B-', 'B+', 'C', 'C-', 'C+', 'D', 'D-', 'D+', 'F'),
+	CWID          INT NOT NULL,
+	CourseNumber  INT NOT NULL,
+	SectionNumber INT NOT NULL,
+	Grade         ENUM('A', 'A-', 'A+', 'B', 'B-', 'B+', 'C', 'C-', 'C+', 'D', 'D-', 'D+', 'F'),
 
-	FOREIGN KEY (CWID)            REFERENCES Student(CWID),
-	FOREIGN KEY (CourseNumber)    REFERENCES Course(CourseNumber),
-	PRIMARY KEY(CWID, CourseNumber)
+	FOREIGN KEY (CWID)          REFERENCES Student(CWID),
+	FOREIGN KEY (CourseNumber)  REFERENCES Course_Section(CourseNumber),
+	FOREIGN KEY (SectionNumber) REFERENCES Course_Section(SectionNumber),
+	PRIMARY KEY(CWID, CourseNumber, SectionNumber)
 );
