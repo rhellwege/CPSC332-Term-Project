@@ -1,45 +1,35 @@
-<?php 
-	echo "hello, this is php";
-	$hostName = 'mariadb';
-	$userName = 'username';
-	$password = 'password';
-	$dbName = 'database';
+<?php
+include "util.php";
 
-	$link = mysqli_connect($hostName, $userName, $password, $dbName) or die("Unable to connect to host $hostName");
+echo "hello, this is php";
+$host_name = "mariadb";
+$username = "cs332e7";
+$password = "password";
+$db_name = "cs332e7";
 
-	$SQL = "SELECT FirstName, LastName, DOB, Gender
-	FROM Patients WHERE Gender = 'M' ORDER BY
-	FirstName DESC";
+$mysqli = new mysqli($host_name, $username, $password, $db_name);
 
-	$Patients = $link->query($SQL);
+// check connection
+if ($mysqli->connect_errno) {
+    printf("MYSQL Connection failed: %s\n", $mysqli->connect_error);
+    exit();
+}
 
-	// $SQL = "INSERT INTO Patients (FirstName, LastName)
-	// VALUES('$firstName', '$lastName')";	
-	// display results
-	if ($Patients->num_rows > 0) {
-	    echo "<table>";
-	    // Output table header
-	    echo "<tr><th>First Name</th><th>Last Name</th><th>Date of Birth</th><th>Gender</th></tr>";
+$sql = "SELECT * FROM Professor;";
+$result = $mysqli->query($sql);
 
-	    // Output data of each row
-	    while($row = $Patients->fetch_assoc()) {
-		// Step 4: Output the results within an HTML grid structure
-		echo "<tr><td>".$row["FirstName"]."</td><td>".$row["LastName"]."</td><td>".$row["DOB"]."</td><td>".$row["Gender"]."</td></tr>";
-	    }
-	    echo "</table>";
-	} else {
-	    echo "0 results";
-	}
-	// cleanup Patients
-	$Patients->free_result();
-	$link->close();
+$table = format_sql_result($result);
+
+echo $table;
+
+// cleanup
+$result->free_result();
+$mysqli->close();
 ?>
+
 <html>
 <head>
 	<title>Hello World</title>
-	<script>
-
-	</script>
 </head>
 <body>
 	<form action="sample.php" method="POST">

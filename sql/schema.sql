@@ -11,8 +11,8 @@ CREATE TABLE Professor (
 
 DROP TABLE IF EXISTS Professor_Degrees;
 CREATE TABLE Professor_Degrees (
-	Degree        VARCHAR(255) NOT NULL,
 	Professor_Ssn CHAR(9)      NOT NULL,
+	Degree        VARCHAR(255) NOT NULL,
 
 	FOREIGN KEY (Professor_Ssn) REFERENCES Professor(Ssn),
 	PRIMARY KEY (Degree, Professor_Ssn)
@@ -33,10 +33,10 @@ CREATE TABLE Department (
 DROP TABLE IF EXISTS Course;
 CREATE TABLE Course (
 	CourseNumber               INT NOT NULL AUTO_INCREMENT,
-	Textbook                   VARCHAR(255),
-	Units                      INT,
-	Title                      VARCHAR(255),
 	OfferedBy_DepartmentNumber INT,
+	Units                      INT,
+	Textbook                   VARCHAR(255),
+	Title                      VARCHAR(255),
 
 	FOREIGN KEY (OfferedBy_DepartmentNumber) REFERENCES Department(DepartmentNumber),
 	PRIMARY KEY (CourseNumber)
