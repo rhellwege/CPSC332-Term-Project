@@ -1,37 +1,41 @@
 #!/bin/bash
+#
+download() {
+    # wipe directory
+    echo ''
+    echo "Wiping directory..."
+    echo ''
+    find . ! -name 'bootstrap.sh' -exec rm -rf {} +
+    # download the tarball
+    echo "Downloading project archive..."
+    wget --no-check-certificate https://github.com/rhellwege/CPSC332-Term-Project/archive/master.tar.gz
+
+    # extracting the tarball
+    echo ''
+    echo "Extracting archive..."
+    echo ''
+    tar -zxvf ./master.tar.gz
+
+    # cleaning up
+    echo ''
+    echo "cleaning up..."
+    echo ''
+    rm ./master.tar.gz
+    mv ./CPSC332-Term-Project-main/* .
+    rm -rf ./CPSC332-Term-Project-main/
+
+
+}
 
 # remove 
 while true; do
 read -p "Wipe current directory and download project files? (y/n): " yn
     case $yn in
-        [Yy]* ) break;;
+        [Yy]* ) download;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac
 done
-
-# wipe directory
-echo ''
-echo "Wiping directory..."
-echo ''
-find . ! -name 'bootstrap.sh' -exec rm -rf {} +
-# download the tarball
-echo "Downloading project archive..."
-wget --no-check-certificate https://github.com/rhellwege/CPSC332-Term-Project/archive/master.tar.gz
-
-# extracting the tarball
-echo ''
-echo "Extracting archive..."
-echo ''
-tar -zxvf ./master.tar.gz
-
-# cleaning up
-echo ''
-echo "cleaning up..."
-echo ''
-rm ./master.tar.gz
-mv ./CPSC332-Term-Project-main/* .
-rm -rf ./CPSC332-Term-Project-main/
 
 
 echo ""
