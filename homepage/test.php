@@ -12,6 +12,14 @@ if ($mysqli->connect_errno) {
     error_log("MYSQL Connection failed: " . $mysqli->connect_error);
     exit();
 }
+
+function test_table(mysqli $mysqli, string $table): string
+{
+    $resp = $mysqli->query("SELECT * FROM $table;");
+    $output = format_sql_result($resp);
+    $resp->close();
+    return $output;
+}
 ?>
 <html>
 <head>
@@ -41,17 +49,24 @@ if ($mysqli->connect_errno) {
     </form>
     <h1>All Tables<h1>
     <h2>Professor<h2>
-    <?php
-    $resp = $mysqli->query("SELECT * FROM Professor;");
-    echo format_sql_result($resp);
-    $resp->close();
-    ?>
-
+    <?php echo test_table($mysqli, "Professor"); ?>
+    <h2>Professor Degrees<h2>
+    <?php echo test_table($mysqli, "Professor_Degrees"); ?>
     <h2>Department<h2>
-    <?php
-    $resp = $mysqli->query("SELECT * FROM Department;");
-    echo format_sql_result($resp);
-    $resp->close();
-    ?>
+    <?php echo test_table($mysqli, "Department"); ?>
+    <h2>Course<h2>
+    <?php echo test_table($mysqli, "Course"); ?>
+    <h2>Course_Prerequisites<h2>
+    <?php echo test_table($mysqli, "Course_Prerequisites"); ?>
+    <h2>Course_Section<h2>
+    <?php echo test_table($mysqli, "Course_Section"); ?>
+    <h2>Course_Section_Days<h2>
+    <?php echo test_table($mysqli, "Course_Section_Days"); ?>
+    <h2>Student<h2>
+    <?php echo test_table($mysqli, "Student"); ?>
+    <h2>Student_Minor<h2>
+    <?php echo test_table($mysqli, "Student_Minor"); ?>
+    <h2>Student_Section_Enrollment<h2>
+    <?php echo test_table($mysqli, "Student_Section_Enrollment"); ?>
 </body>
 </html>

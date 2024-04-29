@@ -6,17 +6,91 @@ VALUES
   ("860586050","Victor","Whitley","756-3193 Ac Av.","Hilo","Indiana","46662","F","543","0123073","Research Associate",79418.09),
   ("564570095","Peter","Day","Ap #415-1894 Dapibus Av.","Norman","Kansas","27128","F","983","4538895","Professor",160442.57),
   ("282926719","Tanya","Roy","P.O. Box 456, 2829 Risus. Ave","Nampa","Virginia","92935","M","315","9475466","Adjunct Professor",91522.74),
-  ("843477602","Sonya","Stevenson","851-1765 Ut Rd.","Huntsville","Maryland","86747","M","684","5272757","Research Associate",144264.93);
+  ("843477602","Sonya","Stevenson","851-1765 Ut Rd.","Huntsville","Maryland","86747","M","684","5272757","Research Associate",144264.93),
+  ("582948103","Matthew","Dewalt","ll51-1765 Luna Rd.","Chino Hills","California","74921","M","290","5739879","Professor",200264.93);
+
+INSERT INTO Professor_Degrees (Professor_Ssn, Degree)
+VALUES
+    ("843477602", "Bachelor of Science in Mathematics"),
+    ("843477602", "Doctorate in Mathematics"),
+    ("860586050", "Master of Science in Mathematics"),
+    ("860586050", "Bachelor of Science in Mathematics"),
+    ("582948103", "Bachelor of Science in Mathematics"),
+    ("582948103", "Doctorate in Mathematics"),
+    ("282926719", "Bachelor of Science in Computer Science"),
+    ("282926719", "Doctorate in Computer Science"),
+    ("564570095", "Bachelor of Science in Computer Science"),
+    ("564570095", "Master of Science in Computer Science"),
+    ("423734389", "Bachelor of Science in Computer Science"),
+    ("423734389", "Doctorate in Computer Science");
 
 INSERT INTO Department (ChairPerson_Ssn,Name,OfficeLocation,PhoneArea,PhoneSeven)
 VALUES
-    ("564570095","Computer Science","Ap #828-7733 Justo Ave","337","1560455"),
-    ("423734389","Math","Ap #601-2300 Duis Road","544","0852558");
+    ("282926719","Computer Science","Ap #828-7733 Justo Ave","337","1560455"),
+    ("582948103","Math","Ap #601-2300 Duis Road","544","0852558");
 
 
-INSERT INTO Course (OfferedBy_DepartmentNumber, Units, Textbook, Title)
+INSERT INTO Course (CourseNumber, OfferedBy_DepartmentNumber, Units, Textbook, Title)
 VALUES
-    (1, 3, "Introduction to Networking Systems ISBN 37432", "CPSC 321 Introduction to Network Architecture"),
-    (1, 3, "Operating Systems Essentials ISBN 4848483", "CPSC 351 Operating Systems"),
-    (2, 4, "Solving Differential Equations ISBN 3234324", "MATH 256"),
-    (2, 4, "Core Principles in Applied Mathematics ISBN 1209309", "MATH 502");
+    (1, 1, 3, "Introduction to Networking Systems ISBN 37432", "CPSC 421 Introduction to Network Architecture"),
+    (2, 1, 3, "Operating Systems Essentials ISBN 4848483", "CPSC 351 Operating Systems"),
+    (3, 1, 3, "Introduction to Programming in C++ ISBN 49995", "CPSC 101 Introduction to Computer Science"),
+    (4, 2, 4, "Solving Differential Equations ISBN 3234324", "MATH 256 Differential Equations"),
+    (5, 2, 4, "Core Principles in Applied Mathematics ISBN 1209309", "MATH 502 Applied Mathematics"),
+    (6, 2, 3, "College Algebra Basics ISBN 404222", "MATH 101 College Algebra");
+
+INSERT INTO Course_Prerequisites (CourseNumber, Prerequisite_CourseNumber)
+VALUES
+    (1, 2),
+    (1, 3),
+    (2, 3),
+    (3, 6),
+    (4, 6),
+    (5, 4),
+    (5, 6);
+
+INSERT INTO Course_Section (CourseNumber, Professor_Ssn, Classroom, Seats, BeginTime, EndTime)
+VALUES
+    (1, "564570095", "CS 202 Lecture Room", 30, TIME("12:30:00"), TIME("14:00:00")),
+    (1, "564570095", "CS 104 Lecture Room", 25, TIME("17:30:00"), TIME("19:00:00")),
+    (2, "282926719", "CS 210 Lecture Room", 25, TIME("19:00:00"), TIME("20:30:00")),
+    (2, "423734389", "CS 210 Lecture Room", 25, TIME("15:00:00"), TIME("16:30:00")),
+    (3, "423734389", "CS 106 Lecture Room", 25, TIME("16:00:00"), TIME("17:30:00")),
+    (3, "282926719", "CS 106 Lecture Room", 25, TIME("15:30:00"), TIME("17:00:00")),
+    (4, "843477602", "E 103 Lecture Room", 25, TIME("18:30:00"), TIME("20:00:00")),
+    (4, "860586050", "E 103 Lecture Room", 25, TIME("18:30:00"), TIME("20:00:00")),
+    (5, "582948103", "LH 103 Lecture room", 25, TIME("13:30:00"), TIME("15:00:00")),
+    (5, "582948103", "LH 103 Lecture room", 25, TIME("13:30:00"), TIME("15:00:00")),
+    (6, "860586050", "MH 207a Lecture Room", 28, TIME("13:00:00"), TIME("14:30:00")),
+    (6, "843477602", "LH 402 Lecture Hall", 80, TIME("14:30:00"), TIME("16:00:00"));
+
+INSERT INTO Course_Section_Days (CourseNumber, SectionNumber, Day)
+VALUES
+    (1, 1, 'M'),
+    (1, 1, 'W'),
+    (1, 2, 'T'),
+    (1, 2, 'Th'),
+    (2, 1, 'M'),
+    (2, 1, 'W'),
+    (2, 2, 'T'),
+    (2, 2, 'Th'),
+    (3, 1, 'M'),
+    (3, 1, 'W'),
+    (3, 2, 'T'),
+    (3, 2, 'Th'),
+    (4, 1, 'M'),
+    (4, 1, 'W'),
+    (4, 2, 'T'),
+    (4, 2, 'Th'),
+    (5, 1, 'M'),
+    (5, 1, 'W'),
+    (5, 2, 'T'),
+    (5, 2, 'Th'),
+    (6, 1, 'M'),
+    (6, 1, 'W'),
+    (6, 2, 'T'),
+    (6, 2, 'Th');
+
+-- INSERT INTO Student (CWID)
+-- INSERT INTO Student_Minor (CWID)
+-- INSERT INTO Student_Section_Enrollment (CWID)

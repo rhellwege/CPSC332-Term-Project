@@ -78,7 +78,7 @@ CREATE TABLE Course_Section_Days (
 
 	FOREIGN KEY (CourseNumber)  REFERENCES Course_Section(CourseNumber),
 	FOREIGN KEY (SectionNumber) REFERENCES Course_Section(SectionNumber),
-	PRIMARY KEY (SectionNumber, Day)
+	PRIMARY KEY (CourseNumber, SectionNumber, Day)
 );
 
 CREATE TABLE Student (
