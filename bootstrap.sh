@@ -2,8 +2,8 @@
 
 github_username="rhellwege"
 github_repo="CPSC332-Term-Project"
-mysql_username="USERNAME"
-mysql_password="PASSWORD"
+mysql_username="cs332e7"
+mysql_password="2wJ3Nbfa"
 
 download() {
     # wipe directory
@@ -37,6 +37,14 @@ download() {
     cp -r "./$github_repo/homepage" .
 }
 
+replace() {
+    echo ''
+    echo "Replacing username and password..."
+    echo ''
+    sed -i "s/USERNAME/$username/g" $(grep -rl 'USERNAME' .)
+    sed -i "s/PASSWORD/$password/g" $(grep -rl 'PASSWORD' .)
+}
+
 # download from scratch
 while true; do
 read -p "remove old repo/homepage or download from scratch? (y/n): " yn
@@ -47,6 +55,15 @@ read -p "remove old repo/homepage or download from scratch? (y/n): " yn
     esac
 done
 
+# download from scratch
+while true; do
+read -p "replace all occurances of USERNAME and PASSWORD with actual username and password? (y/n): " yn
+    case $yn in
+        [Yy]* ) ; break;;
+        [Nn]* ) break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
 
 echo ""
 while true; do
