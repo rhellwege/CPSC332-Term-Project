@@ -61,8 +61,8 @@ replace() {
     echo ''
     echo "Replacing username and password..."
     echo ''
-    sed -i "s/USERNAME/$username/g" $(grep -rl 'USERNAME' .)
-    sed -i "s/PASSWORD/$password/g" $(grep -rl 'PASSWORD' .)
+    sed -i "s/USERNAME/$username/g" $(grep -rl 'USERNAME' . | grep -v 'bootstrap.sh')
+    sed -i "s/PASSWORD/$password/g" $(grep -rl 'PASSWORD' . | grep -v 'bootstrap.sh')
 }
 
 # download from scratch
