@@ -55,11 +55,10 @@ read -p "remove old repo/homepage or download from scratch? (y/n): " yn
     esac
 done
 
-# download from scratch
 while true; do
 read -p "replace all occurances of USERNAME and PASSWORD with actual username and password? (y/n): " yn
     case $yn in
-        [Yy]* ) ; break;;
+        [Yy]* ) replace; break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
