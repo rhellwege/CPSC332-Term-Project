@@ -8,7 +8,15 @@ VALUES
   ("282926719","Tanya","Roy","P.O. Box 456, 2829 Risus. Ave","Nampa","Virginia","92935","M","315","9475466","Adjunct Professor",91522.74),
   ("843477602","Sonya","Stevenson","851-1765 Ut Rd.","Huntsville","Maryland","86747","M","684","5272757","Research Associate",144264.93);
 
-  INSERT INTO Department (ChairPerson_Ssn,Name,OfficeLocation,PhoneArea,PhoneSeven)
-  VALUES
+INSERT INTO Department (ChairPerson_Ssn,Name,OfficeLocation,PhoneArea,PhoneSeven)
+VALUES
     ("564570095","Computer Science","Ap #828-7733 Justo Ave","337","1560455"),
     ("423734389","Math","Ap #601-2300 Duis Road","544","0852558");
+
+
+INSERT INTO Course (OfferedBy_DepartmentNumber, Units, Textbook, Title)
+VALUES
+    (1, 3, "Introduction to Networking Systems ISBN 37432", "CPSC 321 Introduction to Network Architecture"),
+    (1, 3, "Operating Systems Essentials ISBN 4848483", "CPSC 351 Operating Systems"),
+    (2, 4, "Solving Differential Equations ISBN 3234324", "MATH 256"),
+    (2, 4, "Core Principles in Applied Mathematics ISBN 1209309", "MATH 502");
