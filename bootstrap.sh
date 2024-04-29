@@ -14,13 +14,13 @@ download() {
     echo ''
     echo "Downloading archive..."
     echo ''
-    wget --no-check-certificate "https://github.com/$github_username/$github_repo/archive/master.tar.gz" -o ./$github_repo
+    wget --no-check-certificate "https://github.com/$github_username/$github_repo/archive/master.tar.gz"
 
     # extracting the tarball
     echo ''
     echo "Extracting archive..."
     echo ''
-    tar -zxvf ./master.tar.gz
+    tar -zxvf ./master.tar.gz -o ./$github_repo
 
     # cleaning up
     echo ''
