@@ -1,3 +1,5 @@
+USE cs332e7;
+
 INSERT INTO Professor (Ssn,FirstName,LastName,StreetAdress,City,State,ZipCode,Sex,PhoneArea,PhoneSeven,Title,Salary)
 VALUES
   ("423734389","Chanda","Patterson","Ap #475-7284 Non Avenue","Bear","Pennsylvania","86723","F","691","4573131","Associate Professor",59089.33),

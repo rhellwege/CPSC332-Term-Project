@@ -1,6 +1,5 @@
 USE cs332e7;
 
-DROP TABLE IF EXISTS Professor;
 CREATE TABLE Professor (
 	Ssn       CHAR(9) NOT NULL,
 	FirstName    VARCHAR(255),
@@ -18,7 +17,6 @@ CREATE TABLE Professor (
 	PRIMARY KEY (Ssn)
 );
 
-DROP TABLE IF EXISTS Professor_Degrees;
 CREATE TABLE Professor_Degrees (
 	Professor_Ssn CHAR(9)      NOT NULL,
 	Degree        VARCHAR(255) NOT NULL,
@@ -27,7 +25,6 @@ CREATE TABLE Professor_Degrees (
 	PRIMARY KEY (Degree, Professor_Ssn)
 );
 
-DROP TABLE IF EXISTS Department;
 CREATE TABLE Department (
 	DepartmentNumber INT NOT NULL AUTO_INCREMENT,
 	Chairperson_Ssn  CHAR(9),
@@ -40,7 +37,6 @@ CREATE TABLE Department (
 	PRIMARY KEY (DepartmentNumber)
 );
 
-DROP TABLE IF EXISTS Course;
 CREATE TABLE Course (
 	CourseNumber               INT NOT NULL AUTO_INCREMENT,
 	OfferedBy_DepartmentNumber INT,
@@ -52,7 +48,6 @@ CREATE TABLE Course (
 	PRIMARY KEY (CourseNumber)
 );
 
-DROP TABLE IF EXISTS Course_Prerequisites;
 CREATE TABLE Course_Prerequisites (
 	CourseNumber              INT NOT NULL,
 	Prerequisite_CourseNumber INT NOT NULL,
@@ -62,7 +57,6 @@ CREATE TABLE Course_Prerequisites (
 	PRIMARY KEY (CourseNumber, Prerequisite_CourseNumber)
 );
 
-DROP TABLE IF EXISTS Course_Section;
 CREATE TABLE Course_Section (
 	SectionNumber INT NOT NULL AUTO_INCREMENT,
 	CourseNumber  INT NOT NULL,
@@ -77,18 +71,16 @@ CREATE TABLE Course_Section (
 	PRIMARY KEY (SectionNumber, CourseNumber)
 );
 
-DROP TABLE IF EXISTS Course_Section_Days;
 CREATE TABLE Course_Section_Days (
     CourseNumber  INT NOT NULL,
 	SectionNumber INT NOT NULL,
 	Day           ENUM('M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'),
 
-	FOREIGN KEY (CourseNumber)  REFERENCES Course_Section(CourseSection),
+	FOREIGN KEY (CourseNumber)  REFERENCES Course_Section(CourseNumber),
 	FOREIGN KEY (SectionNumber) REFERENCES Course_Section(SectionNumber),
 	PRIMARY KEY (SectionNumber, Day)
 );
 
-DROP TABLE IF EXISTS Student;
 CREATE TABLE Student (
 	CWID                   INT NOT NULL AUTO_INCREMENT,
 	Major_DepartmentNumber INT NOT NULL,
@@ -106,7 +98,6 @@ CREATE TABLE Student (
 	PRIMARY KEY (CWID)
 );
 
-DROP TABLE IF EXISTS Student_Minor;
 CREATE TABLE Student_Minor (
 	CWID                   INT NOT NULL,
 	Minor_DepartmentNumber INT NOT NULL,
@@ -116,7 +107,6 @@ CREATE TABLE Student_Minor (
 	PRIMARY KEY (CWID, Minor_DepartmentNumber)
 );
 
-DROP TABLE IF EXISTS Student_Section_Enrollment;
 CREATE TABLE Student_Section_Enrollment (
 	CWID          INT NOT NULL,
 	CourseNumber  INT NOT NULL,
