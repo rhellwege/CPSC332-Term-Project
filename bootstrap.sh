@@ -2,8 +2,8 @@
 
 github_username="rhellwege"
 github_repo="CPSC332-Term-Project"
-mysql_username="cs332e7"
-mysql_password="2wJ3Nbfa"
+mysql_username="USERNAME"
+mysql_password="PASSWORD"
 
 download() {
     # wipe directory

@@ -1,4 +1,4 @@
-USE cs332e7;
+USE USERNAME;
 
 CREATE TABLE Professor (
 	Ssn       CHAR(9) NOT NULL,

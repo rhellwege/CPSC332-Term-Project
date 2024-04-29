@@ -14,9 +14,9 @@ services:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: cs332e7
-      MYSQL_USER: cs332e7
-      MYSQL_PASSWORD: 2wJ3Nbfa
+      MYSQL_DATABASE: USERNAME
+      MYSQL_USER: USERNAME
+      MYSQL_PASSWORD: PASSWORD
     volumes:
       # - ./mysql:/var/lib/mysql
       - ./sql:/sql

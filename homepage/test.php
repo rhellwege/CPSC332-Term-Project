@@ -1,9 +1,9 @@
 <?php
 include "util.php";
 $host_name = "mariadb";
-$username = "cs332e7";
-$password = "2wJ3Nbfa";
-$db_name = "cs332e7";
+$username = "USERNAME";
+$password = "PASSWORD";
+$db_name = "USERNAME";
 
 $mysqli = new mysqli($host_name, $username, $password, $db_name);
 

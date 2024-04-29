@@ -1,4 +1,4 @@
-USE cs332e7;
+USE USERNAME;
 
 INSERT INTO Professor (Ssn,FirstName,LastName,StreetAdress,City,State,ZipCode,Sex,PhoneArea,PhoneSeven,Title,Salary)
 VALUES

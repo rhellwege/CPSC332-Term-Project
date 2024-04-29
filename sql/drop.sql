@@ -1,5 +1,5 @@
 -- WARNING: Deletes all tables from the database!
-USE cs332e7;
+USE USERNAME;
 
 DROP TABLE Student_Minor;
 DROP TABLE Student_Section_Enrollment;
