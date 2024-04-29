@@ -42,7 +42,7 @@ read -p "Run sql DROP commands? (Only needed if run before.) (y/n): " yn
 echo "Dropping tables...";
 mysql -h mariadb -u cs332e7 -p2wJ3Nbfa < ./sql/drop.sql;
 break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
@@ -55,7 +55,7 @@ read -p "Run sql CREATE commands? (Only needed if all tables are dropped or firs
 echo "Generating tables...";
 mysql -h mariadb -u cs332e7 -p2wJ3Nbfa < ./sql/schema.sql;
 break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
@@ -68,7 +68,7 @@ read -p "Run sql INSERT commands? (Only needed if all tables are dropped or firs
 echo "Inserting data...";
 mysql -h mariadb -u cs332e7 -p2wJ3Nbfa < ./sql/insert.sql;
 break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
