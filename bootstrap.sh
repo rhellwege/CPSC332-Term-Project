@@ -4,7 +4,27 @@ github_username="rhellwege"
 github_repo="CPSC332-Term-Project"
 mysql_username=""
 mysql_password=""
+#
+# Check if the variable is empty
+if [ -z "$github_username" ]; then
+    echo "Please enter a value for github_username:"
+    read github_username
+fi
 
+if [ -z "$github_repo" ]; then
+    echo "Please enter a value for github_repo:"
+    read github_username
+fi
+
+if [ -z "$mysql_username" ]; then
+    echo "Please enter a value for mysql_username:"
+    read mysql_username
+fi
+
+if [ -z "$mysql_password" ]; then
+    echo "Please enter a value for mysql_password:"
+    read mysql_password
+fi
 download() {
     # wipe directory
     echo ''
