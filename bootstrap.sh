@@ -20,7 +20,8 @@ download() {
     echo ''
     echo "Extracting archive..."
     echo ''
-    tar -zxvf ./master.tar.gz -o ./$github_repo
+    tar -zxvf ./master.tar.gz
+    mv "./$github_repo-main" "./$github_repo"
 
     # cleaning up
     echo ''
