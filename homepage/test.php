@@ -14,8 +14,13 @@ if ($mysqli->connect_errno) {
 }
 ?>
 <html>
+<head>
+    <title>Test Suite</title>
+</head>
 <body>
     <h1>Debug / Testing Page</h1>
+    <a href="/">Go back</a>
+
 
     <?php if (isset($_POST["sql_query"])) {
         $sql_query = $_POST["sql_query"];
