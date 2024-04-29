@@ -6,8 +6,14 @@ CREATE TABLE Professor (
 	FirstName    VARCHAR(255),
 	LastName     VARCHAR(255),
 	StreetAdress VARCHAR(255),
+	City         VARCHAR(255),
+	State        VARCHAR(255),
 	ZipCode      CHAR(5),
-
+	Sex          CHAR,
+	PhoneArea    CHAR(3),
+	PhoneSeven   CHAR(7),
+	Title        VARCHAR(255),
+	Salary       DECIMAL,
 
 	PRIMARY KEY (Ssn)
 );
@@ -27,7 +33,8 @@ CREATE TABLE Department (
 	Chairperson_Ssn  CHAR(9),
 	Name             VARCHAR(255),
 	OfficeLocation   VARCHAR(255),
-	Phone            CHAR(10),
+	PhoneArea    CHAR(3),
+	PhoneSeven   CHAR(7),
 
 	FOREIGN KEY (Chairperson_Ssn) REFERENCES Professor(Ssn),
 	PRIMARY KEY (DepartmentNumber)
@@ -85,10 +92,15 @@ DROP TABLE IF EXISTS Student;
 CREATE TABLE Student (
 	CWID                   INT NOT NULL AUTO_INCREMENT,
 	Major_DepartmentNumber INT NOT NULL,
-	Address                VARCHAR(255),
-	FirstName              VARCHAR(255),
-	LastName               VARCHAR(255),
-	Phone           CHAR(7),
+	FirstName    VARCHAR(255),
+	LastName     VARCHAR(255),
+	StreetAdress VARCHAR(255),
+	City         VARCHAR(255),
+	State        VARCHAR(255),
+	ZipCode      CHAR(5),
+	Sex          CHAR,
+	PhoneArea    CHAR(3),
+	PhoneSeven   CHAR(7),
 
 	FOREIGN KEY (Major_DepartmentNumber) REFERENCES Department(DepartmentNumber),
 	PRIMARY KEY (CWID)
