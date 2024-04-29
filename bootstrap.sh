@@ -10,7 +10,7 @@ download() {
     echo ''
     echo "Removing old repo..."
     echo ''
-    rm "./$github_repo"
+    rm "./$github_repo-main"
     echo ''
     echo "Downloading archive..."
     echo ''
@@ -33,7 +33,7 @@ download() {
     echo "Setting up homepage directory..."
     echo ''
     rm -rf ./homepage
-    cp -r "./$github_repo/homepage" .
+    cp -r "./$github_repo-main/homepage" .
 }
 
 # download from scratch
@@ -53,7 +53,7 @@ read -p "Run sql DROP commands? (Only needed if run before.) (y/n): " yn
     case $yn in
         [Yy]* ) # Dropping tables
 echo "Dropping tables...";
-mysql -h mariadb -u $mysql_username -p$mysql_password < ./sql/drop.sql;
+mysql -h mariadb -u $mysql_username -p$mysql_password < "./$github_repo-main/sql/drop.sql";
 break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
@@ -66,7 +66,7 @@ read -p "Run sql CREATE commands? (Only needed if all tables are dropped or firs
     case $yn in
         [Yy]* ) # Dropping tables
 echo "Generating tables...";
-mysql -h mariadb -u $mysql_username -p$mysql_password < ./sql/schema.sql;
+mysql -h mariadb -u $mysql_username -p$mysql_password <  "./$github_repo-main/sql/schema.sql";
 break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
@@ -79,7 +79,7 @@ read -p "Run sql INSERT commands? (Only needed if all tables are dropped or firs
     case $yn in
         [Yy]* ) # Dropping tables
 echo "Inserting data...";
-mysql -h mariadb -u $mysql_username -p$mysql_password < ./sql/insert.sql;
+mysql -h mariadb -u $mysql_username -p$mysql_password < "./$github_repo-main/sql/insert.sql";
 break;;
         [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
