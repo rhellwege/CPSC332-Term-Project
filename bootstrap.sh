@@ -8,11 +8,12 @@ mysql_password="2wJ3Nbfa"
 download() {
     # wipe directory
     echo ''
-    echo "Wiping directory..."
+    echo "Removing old repo..."
     echo ''
-    find . ! -name 'bootstrap.sh' -exec rm -rf {} +
-    # download the tarball
-    echo "Downloading project archive..."
+    rm "./$github_repo"
+    echo ''
+    echo "Downloading archive..."
+    echo ''
     wget --no-check-certificate "https://github.com/$github_username/$github_repo/archive/master.tar.gz"
 
     # extracting the tarball
@@ -26,13 +27,18 @@ download() {
     echo "cleaning up..."
     echo ''
     rm ./master.tar.gz
-    mv "./$github_repo/*" .
-    rm -rf ./$github_repo/
+
+
+    echo ''
+    echo "Setting up homepage directory..."
+    echo ''
+    rm -rf ./homepage
+    cp -r "./$github_repo/homepage" .
 }
 
-# download from scratch 
+# download from scratch
 while true; do
-read -p "Wipe current directory and download project files? (y/n): " yn
+read -p "remove old repo/homepage or download from scratch? (y/n): " yn
     case $yn in
         [Yy]* ) download; break;;
         [Nn]* ) break;;
