@@ -34,7 +34,7 @@ download() {
     echo "Setting up homepage directory..."
     echo ''
     rm -rf ./homepage
-    cp -r "./$github_repo-main/homepage" .
+    cp -r "./$github_repo/homepage" .
 }
 
 # download from scratch
