@@ -58,7 +58,7 @@ CREATE TABLE Course_Prerequisites (
 );
 
 CREATE TABLE Course_Section (
-	SectionNumber INT NOT NULL AUTO_INCREMENT,
+	SectionNumber INT NOT NULL,
 	CourseNumber  INT NOT NULL,
 	Professor_Ssn CHAR(9),
 	Classroom     VARCHAR(255),

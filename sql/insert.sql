@@ -49,20 +49,20 @@ VALUES
     (5, 4),
     (5, 6);
 
-INSERT INTO Course_Section (CourseNumber, Professor_Ssn, Classroom, Seats, BeginTime, EndTime)
+INSERT INTO Course_Section (CourseNumber, SectionNumber, Professor_Ssn, Classroom, Seats, BeginTime, EndTime)
 VALUES
-    (1, "564570095", "CS 202 Lecture Room", 30, TIME("12:30:00"), TIME("14:00:00")),
-    (1, "564570095", "CS 104 Lecture Room", 25, TIME("17:30:00"), TIME("19:00:00")),
-    (2, "282926719", "CS 210 Lecture Room", 25, TIME("19:00:00"), TIME("20:30:00")),
-    (2, "423734389", "CS 210 Lecture Room", 25, TIME("15:00:00"), TIME("16:30:00")),
-    (3, "423734389", "CS 106 Lecture Room", 25, TIME("16:00:00"), TIME("17:30:00")),
-    (3, "282926719", "CS 106 Lecture Room", 25, TIME("15:30:00"), TIME("17:00:00")),
-    (4, "843477602", "E 103 Lecture Room", 25, TIME("18:30:00"), TIME("20:00:00")),
-    (4, "860586050", "E 103 Lecture Room", 25, TIME("18:30:00"), TIME("20:00:00")),
-    (5, "582948103", "LH 103 Lecture room", 25, TIME("13:30:00"), TIME("15:00:00")),
-    (5, "582948103", "LH 103 Lecture room", 25, TIME("13:30:00"), TIME("15:00:00")),
-    (6, "860586050", "MH 207a Lecture Room", 28, TIME("13:00:00"), TIME("14:30:00")),
-    (6, "843477602", "LH 402 Lecture Hall", 80, TIME("14:30:00"), TIME("16:00:00"));
+    (1, 1, "564570095", "CS 202 Lecture Room", 30, TIME("12:30:00"), TIME("14:00:00")),
+    (1, 2, "564570095", "CS 104 Lecture Room", 25, TIME("17:30:00"), TIME("19:00:00")),
+    (2, 1, "282926719", "CS 210 Lecture Room", 25, TIME("19:00:00"), TIME("20:30:00")),
+    (2, 2, "423734389", "CS 210 Lecture Room", 25, TIME("15:00:00"), TIME("16:30:00")),
+    (3, 1, "423734389", "CS 106 Lecture Room", 25, TIME("16:00:00"), TIME("17:30:00")),
+    (3, 2, "282926719", "CS 106 Lecture Room", 25, TIME("15:30:00"), TIME("17:00:00")),
+    (4, 1, "843477602", "E 103 Lecture Room", 25, TIME("18:30:00"), TIME("20:00:00")),
+    (4, 2, "860586050", "E 103 Lecture Room", 25, TIME("18:30:00"), TIME("20:00:00")),
+    (5, 1, "582948103", "LH 103 Lecture room", 25, TIME("13:30:00"), TIME("15:00:00")),
+    (5, 2, "582948103", "LH 103 Lecture room", 25, TIME("13:30:00"), TIME("15:00:00")),
+    (6, 1, "860586050", "MH 207a Lecture Room", 28, TIME("13:00:00"), TIME("14:30:00")),
+    (6, 2, "843477602", "LH 402 Lecture Hall", 80, TIME("14:30:00"), TIME("16:00:00"));
 
 INSERT INTO Course_Section_Days (CourseNumber, SectionNumber, Day)
 VALUES
