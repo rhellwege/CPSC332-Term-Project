@@ -27,12 +27,12 @@ download() {
 
 }
 
-# remove 
+# download from scratch 
 while true; do
 read -p "Wipe current directory and download project files? (y/n): " yn
     case $yn in
         [Yy]* ) download;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
