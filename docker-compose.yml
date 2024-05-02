@@ -18,8 +18,9 @@ services:
       MYSQL_USER: USERNAME
       MYSQL_PASSWORD: PASSWORD
     volumes:
-      # - ./mysql:/var/lib/mysql
       - ./sql:/sql
+      - ./startup:/docker-entrypoint-initdb.d/:ro
     restart: always
     ports:
       - "3306:3306"
+    # command: sh -c "mysql -h mariadb -u USERNAME -pPASSWORD < /sql/schema.sql; mysql -h mariadb -u USERNAME -pPASSWORD < /sql/insert.sql"
