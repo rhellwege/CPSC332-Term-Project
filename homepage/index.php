@@ -24,6 +24,7 @@ if ($mysqli->connect_errno) {
     <a href="/test.php">Test page</a>
     <div>
         <h2>Professor Interface</h2>
+        <h3>Meeting Information</h3>
         <p>
             Access a professor's section meeting locations and times by inputting their social security number below.
         </p>
@@ -34,7 +35,18 @@ if ($mysqli->connect_errno) {
         </form>
         <?php if (isset($_POST["professor_ssn"])) {
             $professor_ssn = $_POST["professor_ssn"];
-            echo "<h3>Results for $professor_ssn</h3>";
+            $name_query = "SELECT FirstName, LastName FROM Professor WHERE Ssn = '$professor_ssn'";
+            try {
+                $name_resp = $mysqli->query($name_query);
+                $row = $name_resp->fetch_assoc();
+                $first_name = $row["FirstName"];
+                $last_name = $row["LastName"];
+                echo "<h3>Results for $professor_ssn ($first_name $last_name)</h3>";
+                $name_resp->close();
+            } catch (Exception $e) {
+                printf("<p>SQL ERROR: %s</p>", $e->getMessage());
+            }
+
             $sql_query = "
                 SELECT C.Title, CS.Classroom, CSD.Day, CS.BeginTime, CS.EndTime
                 FROM
@@ -49,9 +61,9 @@ if ($mysqli->connect_errno) {
                 P.Ssn = '$professor_ssn';
             ";
             try {
-                $resp = $mysqli->query($sql_query);
-                echo format_sql_result($resp);
-                $resp->close();
+                $meeting_resp = $mysqli->query($sql_query);
+                echo format_sql_result($meeting_resp);
+                $meeting_resp->close();
                 echo "<br><form style='display: inline' method=GET>
                         <button>Reset</button>
                       </form>";
@@ -59,7 +71,6 @@ if ($mysqli->connect_errno) {
                 printf("<p>SQL ERROR: %s</p>", $e->getMessage());
             }
         } ?>
-
     </div>
     <div>
         <h2>Student Interface</h2>
