@@ -1,7 +1,7 @@
 USE USERNAME;
 
 CREATE TABLE Professor (
-	Ssn       CHAR(9) NOT NULL,
+	Ssn          CHAR(9) NOT NULL,
 	FirstName    VARCHAR(255),
 	LastName     VARCHAR(255),
 	StreetAdress VARCHAR(255),
