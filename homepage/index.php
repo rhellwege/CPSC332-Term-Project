@@ -20,10 +20,11 @@ if ($mysqli->connect_errno) {
 	<title>University DB</title>
 </head>
 <body>
-    <h1>Welcome To University Database</h1>
+    <h1 style="text-align:center">Welcome To University Database</h1>
     <a href="/test.php">Test page</a>
     <div>
-        <h2>Professor Interface</h2>
+        <h2 style="text-align:center">Professor Interface</h2>
+        <hr>
         <h3>Meeting Information</h3>
         <p>
             Access a professor's section meeting locations and times by inputting their social security number below.
@@ -71,6 +72,7 @@ if ($mysqli->connect_errno) {
                 printf("<p>SQL ERROR: %s</p>", $e->getMessage());
             }
         } ?>
+        <hr>
         <h3>Section Grades</h3>
         <p>
             See how many students got each grade in a section.
@@ -108,8 +110,10 @@ if ($mysqli->connect_errno) {
             }
         } ?>
     </div>
+    <hr>
     <div>
-        <h2>Student Interface</h2>
+        <h2 style="text-align:center">Student Interface</h2>
+        <hr>
 
     </div>
     <form action="sample.php" method="POST">
