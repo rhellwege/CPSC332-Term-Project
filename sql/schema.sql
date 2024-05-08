@@ -1,18 +1,18 @@
 USE USERNAME;
 
 CREATE TABLE Professor (
-	Ssn          CHAR(9) NOT NULL,
-	FirstName    VARCHAR(255),
-	LastName     VARCHAR(255),
-	StreetAdress VARCHAR(255),
-	City         VARCHAR(255),
-	State        VARCHAR(255),
-	ZipCode      CHAR(5),
-	Sex          CHAR,
-	PhoneArea    CHAR(3),
-	PhoneSeven   CHAR(7),
-	Title        VARCHAR(255),
-	Salary       DECIMAL,
+	Ssn           CHAR(9) NOT NULL,
+	FirstName     VARCHAR(255),
+	LastName      VARCHAR(255),
+	StreetAddress VARCHAR(255),
+	City          VARCHAR(255),
+	State         VARCHAR(255),
+	ZipCode       CHAR(5),
+	Sex           CHAR,
+	PhoneArea     CHAR(3),
+	PhoneSeven    CHAR(7),
+	Title         VARCHAR(255),
+	Salary        DECIMAL,
 
 	PRIMARY KEY (Ssn)
 );
@@ -84,15 +84,15 @@ CREATE TABLE Course_Section_Days (
 CREATE TABLE Student (
 	CWID                   INT NOT NULL AUTO_INCREMENT,
 	Major_DepartmentNumber INT NOT NULL,
-	FirstName    VARCHAR(255),
-	LastName     VARCHAR(255),
-	StreetAdress VARCHAR(255),
-	City         VARCHAR(255),
-	State        VARCHAR(255),
-	ZipCode      CHAR(5),
-	Sex          CHAR,
-	PhoneArea    CHAR(3),
-	PhoneSeven   CHAR(7),
+	FirstName     VARCHAR(255),
+	LastName      VARCHAR(255),
+	StreetAddress VARCHAR(255),
+	City          VARCHAR(255),
+	State         VARCHAR(255),
+	ZipCode       CHAR(5),
+	Sex           CHAR,
+	PhoneArea     CHAR(3),
+	PhoneSeven    CHAR(7),
 
 	FOREIGN KEY (Major_DepartmentNumber) REFERENCES Department(DepartmentNumber),
 	PRIMARY KEY (CWID)

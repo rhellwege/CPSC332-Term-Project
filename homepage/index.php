@@ -71,6 +71,41 @@ if ($mysqli->connect_errno) {
                 printf("<p>SQL ERROR: %s</p>", $e->getMessage());
             }
         } ?>
+        <h3>Section Grades</h3>
+        <p>
+            See how many students got each grade in a section.
+        </p>
+        <!-- display results on the same page, so redirect here -->
+        <form method=POST>
+            <em>Enter Course Number: </em><br><input type = "text" name="course_number" placeholder="1"></input><br><br>
+            <em>Enter Section Number: </em><br><input type = "text" name="section_number" placeholder="1"></input>
+                <input type="submit">
+        </form>
+        <?php if (
+            isset($_POST["course_number"]) &&
+            isset($_POST["section_number"])
+        ) {
+            $course_number = $_POST["course_number"];
+            $section_number = $_POST["section_number"];
+            $sql_query = "
+                SELECT Grade, COUNT(*) AS 'Student Count'
+                FROM Student_Section_Enrollment AS E
+                WHERE
+                E.CourseNumber = '$course_number'
+                AND E.SectionNumber = '$section_number'
+                GROUP BY Grade;
+            ";
+            try {
+                $grades_resp = $mysqli->query($sql_query);
+                echo format_sql_result($grades_resp);
+                $grades_resp->close();
+                echo "<br><form style='display: inline' method=GET>
+                        <button>Reset</button>
+                      </form>";
+            } catch (Exception $e) {
+                printf("<p>SQL ERROR: %s</p>", $e->getMessage());
+            }
+        } ?>
     </div>
     <div>
         <h2>Student Interface</h2>

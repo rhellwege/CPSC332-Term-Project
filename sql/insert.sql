@@ -91,7 +91,7 @@ VALUES
     (6, 2, 'T'),
     (6, 2, 'Th');
 
-INSERT INTO Student (Major_DepartmentNumber, FirstName, LastName, StreetAdress, City, State, ZipCode, Sex, PhoneArea, PhoneSeven)
+INSERT INTO Student (Major_DepartmentNumber, FirstName, LastName, StreetAddress, City, State, ZipCode, Sex, PhoneArea, PhoneSeven)
 VALUES
     (1, 'Mohammad', 'Miranda', '1675 Commodo Road', 'Zamboanga City', 'CA', '90210', 'M', '152', '8621042'),
     (1, 'Beatrice', 'Elliott', '2470 Ad Road', 'Sevsk', 'TX', '98101', 'F', '941', '3163508'),
