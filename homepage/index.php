@@ -87,6 +87,7 @@ if ($mysqli->connect_errno) {
         ) {
             $course_number = $_POST["course_number"];
             $section_number = $_POST["section_number"];
+            echo "<h3>Results for Course $course_number Section $section_number</h3>";
             $sql_query = "
                 SELECT Grade, COUNT(*) AS 'Student Count'
                 FROM Student_Section_Enrollment AS E
