@@ -21,7 +21,8 @@ if ($mysqli->connect_errno) {
 </head>
 <body>
     <h1 style="text-align:center">Welcome To University Database</h1>
-    <a href="/test.php">Test page</a>
+    <p style="text-align:center">Developed by Ryan Hellwege, Luke Zapp</p>
+    <a style="text-align:center" href="./test.php">Test page</a>
     <div>
         <h2 style="text-align:center">Professor Interface</h2>
         <hr>

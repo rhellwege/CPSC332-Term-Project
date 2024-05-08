@@ -27,7 +27,7 @@ function test_table(mysqli $mysqli, string $table): string
 </head>
 <body>
     <h1>Debug / Testing Page</h1>
-    <a href="/">Go back</a>
+    <a href="./index.php">Go back</a>
 
 
     <?php if (isset($_POST["sql_query"])) {

@@ -41,6 +41,7 @@ download() {
     echo "Extracting archive..."
     echo ''
     tar -zxvf ./master.tar.gz
+    rm -rf "./$github_repo"
     mv "./$github_repo-main" "./$github_repo"
 
     # cleaning up
