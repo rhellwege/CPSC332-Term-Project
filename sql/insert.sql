@@ -91,6 +91,41 @@ VALUES
     (6, 2, 'T'),
     (6, 2, 'Th');
 
--- INSERT INTO Student (CWID)
--- INSERT INTO Student_Minor (CWID)
--- INSERT INTO Student_Section_Enrollment (CWID)
+INSERT INTO Student (Major_DepartmentNumber, FirstName, LastName, StreetAdress, City, State, ZipCode, Sex, PhoneArea, PhoneSeven)
+VALUES
+    (1, 'Mohammad', 'Miranda', '1675 Commodo Road', 'Zamboanga City', 'CA', '90210', 'M', '152', '8621042'),
+    (1, 'Beatrice', 'Elliott', '2470 Ad Road', 'Sevsk', 'TX', '98101', 'F', '941', '3163508'),
+    (1, 'Cole', 'Robbins', '6737 Ut Street', 'North-Eastern Islands', 'FL', '60611', 'M', '949', '4201207'),
+    (1, 'Ignatius', 'Henson', '681-7276 Cursus Av', 'Ålesund', 'NY', '10001', 'M', '016', '1438048'),
+    (1, 'Noble', 'Mcpherson', '275-2111 Iaculis Av', 'Puerto Nariño', 'IL', '33139', 'F', '222', '3806292'),
+    (2, 'Rebecca', 'Hicks', '2053 Ante Av', 'Tumaco', 'PA', '75201', 'F', '531', '4340244'),
+    (2, 'Martin', 'Solis', '734-9344 Dis Rd', 'Iquitos', 'OH', '94110', 'M', '123', '6555316'),
+    (2, 'Quinlan', 'Bowers', '524-7633 Consectetuer Rd', 'Cork', 'GA', '90265', 'M', '654', '5351232'),
+    (2, 'Sonya', 'Mann', '725-9403 Iaculis Road', 'Kryvyi Rih', 'MI', '20001', 'F', '263', '5415153'),
+    (2, 'Barclay', 'Tyson', 'Ap #934-7943 Auctor St', 'Heredia', 'NC', '02116', 'M', '876', '9299322');
+
+INSERT INTO Student_Minor (CWID, Minor_DepartmentNumber)
+VALUES
+    (1, 2),
+    (2, 2),
+    (3, 2),
+    (4, 2),
+    (5, 2),
+    (6, 1),
+    (7, 1),
+    (8, 1),
+    (9, 1),
+    (10, 1);
+
+INSERT INTO Student_Section_Enrollment (CWID, CourseNumber, SectionNumber, Grade)
+VALUES
+    (1, 1, 1, 'A'),
+    (2, 1, 2, 'B'),
+    (3, 2, 1, 'C'),
+    (4, 2, 2, 'B+'),
+    (5, 3, 1, 'F'),
+    (6, 3, 2, 'A+'),
+    (7, 4, 1, 'D'),
+    (8, 4, 2, 'C-'),
+    (9, 5, 1, 'B-'),
+    (10, 5, 2, 'A-');
