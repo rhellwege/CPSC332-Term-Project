@@ -1,6 +1,6 @@
 USE USERNAME;
 
-INSERT INTO Professor (Ssn,FirstName,LastName,StreetAdress,City,State,ZipCode,Sex,PhoneArea,PhoneSeven,Title,Salary)
+INSERT INTO Professor (Ssn,FirstName,LastName,StreetAddress,City,State,ZipCode,Sex,PhoneArea,PhoneSeven,Title,Salary)
 VALUES
   ("423734389","Chanda","Patterson","Ap #475-7284 Non Avenue","Bear","Pennsylvania","86723","F","691","4573131","Associate Professor",59089.33),
   ("860586050","Victor","Whitley","756-3193 Ac Av.","Hilo","Indiana","46662","F","543","0123073","Research Associate",79418.09),
@@ -120,12 +120,36 @@ VALUES
 INSERT INTO Student_Section_Enrollment (CWID, CourseNumber, SectionNumber, Grade)
 VALUES
     (1, 1, 1, 'A'),
-    (2, 1, 2, 'B'),
+    (1, 2, 1, 'C'),
+    (1, 5, 2, 'B+'),
+    (1, 6, 2, 'D'),
+    (2, 2, 2, 'C'),
+    (2, 5, 1, 'B-'),
+    (2, 3, 2, 'A+'),
+    (2, 4, 1, 'D'),
     (3, 2, 1, 'C'),
-    (4, 2, 2, 'B+'),
-    (5, 3, 1, 'F'),
+    (3, 3, 1, 'A-'),
+    (3, 4, 2, 'B'),
+    (3, 6, 2, 'A'),
+    (4, 4, 2, 'C+'),
+    (4, 5, 1, 'B+'),
+    (4, 6, 2, 'A+'),
+    (5, 4, 1, 'A'),
+    (5, 3, 1, 'B'),
+    (5, 2, 2, 'B'),
     (6, 3, 2, 'A+'),
-    (7, 4, 1, 'D'),
-    (8, 4, 2, 'C-'),
-    (9, 5, 1, 'B-'),
-    (10, 5, 2, 'A-');
+    (6, 4, 1, 'A'),
+    (6, 1, 2, 'A+'),
+    (6, 6, 2, 'A-'),
+    (7, 4, 1, 'B+'),
+    (7, 2, 2, 'D+'),
+    (7, 5, 1, 'A'),
+    (8, 1, 2, 'B-'),
+    (8, 5, 2, 'A'),
+    (8, 3, 1, 'C+'),
+    (9, 5, 1, 'A'),
+    (9, 6, 1, 'A-'),
+    (9, 4, 1, 'B+'),
+    (10, 5, 2, 'A'),
+    (10, 6, 2, 'A-'),
+    (10, 4, 2, 'B+');
