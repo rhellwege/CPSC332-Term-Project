@@ -6,6 +6,8 @@ $username = "USERNAME";
 $password = "PASSWORD";
 $db_name = "USERNAME";
 
+date_default_timezone_set("America/Los_Angeles");
+
 $mysqli = new mysqli($host_name, $username, $password, $db_name);
 
 // check connection
@@ -22,6 +24,9 @@ if ($mysqli->connect_errno) {
 <body>
     <h1 style="text-align:center">Welcome To University Database</h1>
     <p style="text-align:center">Developed by Ryan Hellwege, Luke Zapp</p>
+    <p style="text-align:center"><em>Accessed on <?php echo date(
+        "F j, Y, g:i a"
+    ); ?></em></p>
     <a style="text-align:center" href="./test.php">Test page</a>
     <div>
         <h2 style="text-align:center">Professor Interface</h2>
