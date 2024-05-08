@@ -5,7 +5,7 @@ VALUES
   ("423734389","Chanda","Patterson","Ap #475-7284 Non Avenue","Bear","Pennsylvania","86723","F","691","4573131","Associate Professor",59089.33),
   ("860586050","Victor","Whitley","756-3193 Ac Av.","Hilo","Indiana","46662","F","543","0123073","Research Associate",79418.09),
   ("564570095","Peter","Day","Ap #415-1894 Dapibus Av.","Norman","Kansas","27128","F","983","4538895","Professor",160442.57),
-  ("282926719","Tanya","Roy","P.O. Box 456, 2829 Risus. Ave","Nampa","Virginia","92935","M","315","9475466","Adjunct Professor",91522.74),
+  ("123456789","Tanya","Roy","P.O. Box 456, 2829 Risus. Ave","Nampa","Virginia","92935","M","315","9475466","Adjunct Professor",91522.74),
   ("843477602","Sonya","Stevenson","851-1765 Ut Rd.","Huntsville","Maryland","86747","M","684","5272757","Research Associate",144264.93),
   ("582948103","Matthew","Dewalt","ll51-1765 Luna Rd.","Chino Hills","California","74921","M","290","5739879","Professor",200264.93);
 
@@ -17,8 +17,8 @@ VALUES
     ("860586050", "Bachelor of Science in Mathematics"),
     ("582948103", "Bachelor of Science in Mathematics"),
     ("582948103", "Doctorate in Mathematics"),
-    ("282926719", "Bachelor of Science in Computer Science"),
-    ("282926719", "Doctorate in Computer Science"),
+    ("123456789", "Bachelor of Science in Computer Science"),
+    ("123456789", "Doctorate in Computer Science"),
     ("564570095", "Bachelor of Science in Computer Science"),
     ("564570095", "Master of Science in Computer Science"),
     ("423734389", "Bachelor of Science in Computer Science"),
@@ -26,7 +26,7 @@ VALUES
 
 INSERT INTO Department (ChairPerson_Ssn,Name,OfficeLocation,PhoneArea,PhoneSeven)
 VALUES
-    ("282926719","Computer Science","Ap #828-7733 Justo Ave","337","1560455"),
+    ("123456789","Computer Science","Ap #828-7733 Justo Ave","337","1560455"),
     ("582948103","Math","Ap #601-2300 Duis Road","544","0852558");
 
 
@@ -53,10 +53,10 @@ INSERT INTO Course_Section (CourseNumber, SectionNumber, Professor_Ssn, Classroo
 VALUES
     (1, 1, "564570095", "CS 202 Lecture Room", 30, TIME("12:30:00"), TIME("14:00:00")),
     (1, 2, "564570095", "CS 104 Lecture Room", 25, TIME("17:30:00"), TIME("19:00:00")),
-    (2, 1, "282926719", "CS 210 Lecture Room", 25, TIME("19:00:00"), TIME("20:30:00")),
+    (2, 1, "123456789", "CS 210 Lecture Room", 25, TIME("19:00:00"), TIME("20:30:00")),
     (2, 2, "423734389", "CS 210 Lecture Room", 25, TIME("15:00:00"), TIME("16:30:00")),
     (3, 1, "423734389", "CS 106 Lecture Room", 25, TIME("16:00:00"), TIME("17:30:00")),
-    (3, 2, "282926719", "CS 106 Lecture Room", 25, TIME("15:30:00"), TIME("17:00:00")),
+    (3, 2, "123456789", "CS 106 Lecture Room", 25, TIME("15:30:00"), TIME("17:00:00")),
     (4, 1, "843477602", "E 103 Lecture Room", 25, TIME("18:30:00"), TIME("20:00:00")),
     (4, 2, "860586050", "E 103 Lecture Room", 25, TIME("18:30:00"), TIME("20:00:00")),
     (5, 1, "582948103", "LH 103 Lecture room", 25, TIME("13:30:00"), TIME("15:00:00")),
