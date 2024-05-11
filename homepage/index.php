@@ -1,6 +1,6 @@
 <?php
 // startup script
-include "util.php"; // contains code for formatting sql result into grid
+include "view.php"; // contains code for formatting sql result into grid
 $host_name = "mariadb";
 $username = "USERNAME";
 $password = "PASSWORD";
@@ -120,12 +120,10 @@ if ($mysqli->connect_errno) {
     <div>
         <h2 style="text-align:center">Student Interface</h2>
         <hr>
-
     </div>
     <form action="sample.php" method="POST">
 	Enter First Name: <input type="text" name="fname">
 	<input type="submit">
 	</form>
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-include "util.php";
+include "view.php";
 $host_name = "mariadb";
 $username = "USERNAME";
 $password = "PASSWORD";
