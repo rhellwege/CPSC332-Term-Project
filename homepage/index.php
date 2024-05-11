@@ -91,23 +91,23 @@ if ($mysqli->connect_errno) {
         </p>
         <!-- display results on the same page, so redirect here -->
         <form method=POST>
-            <em>Enter Course Number: </em><br><input type = "text" name="course_number" placeholder="1"></input><br><br>
-            <em>Enter Section Number: </em><br><input type = "text" name="section_number" placeholder="1"></input>
+            <em>Enter Course Number: </em><br><input type = "text" name="prof_course_number" placeholder="1"></input><br><br>
+            <em>Enter Section Number: </em><br><input type = "text" name="prof_section_number" placeholder="1"></input>
                 <input type="submit">
         </form>
         <?php if (
-            isset($_POST["course_number"]) &&
-            isset($_POST["section_number"])
+            isset($_POST["prof_course_number"]) &&
+            isset($_POST["prof_section_number"])
         ) {
-            $course_number = $_POST["course_number"];
-            $section_number = $_POST["section_number"];
+            $course_number = $_POST["prof_course_number"];
+            $section_number = $_POST["prof_section_number"];
             echo "<h3>Results for Course $course_number Section $section_number</h3>";
             $sql_query = "
                 SELECT Grade, COUNT(*) AS 'Student Count'
                 FROM Student_Section_Enrollment AS E
                 WHERE
-                E.CourseNumber = '$course_number'
-                AND E.SectionNumber = '$section_number'
+                    E.CourseNumber = '$course_number'
+                    AND E.SectionNumber = '$section_number'
                 GROUP BY Grade;
             ";
             try {
@@ -125,6 +125,51 @@ if ($mysqli->connect_errno) {
     <hr>
     <div>
         <h2 style="text-align:center">Student Interface</h2>
+        <hr>
+        <h3>Course Section Information</h3>
+        <p>
+            See the meeting information for all sections of a course as well as how many students are enrolled.
+        </p>
+        <form method=POST>
+            <em>Enter Course Number: </em><br><input type = "text" name="stu_course_number" placeholder="1"></input><br><br>
+                <input type="submit">
+        </form>
+        <?php if (isset($_POST["stu_course_number"])) {
+            $course_number = $_POST["stu_course_number"];
+            $title_query = "SELECT Title FROM Course WHERE CourseNumber = $course_number";
+            try {
+                $title_resp = $mysqli->query($title_query);
+                $row = $title_resp->fetch_assoc();
+                $course_title = $row["Title"];
+                echo "<h3>Results for Course Number $course_number ($course_title)</h3>";
+                $title_resp->close();
+            } catch (Exception $e) {
+                printf("<p>SQL ERROR: %s</p>", $e->getMessage());
+            }
+            $sql_query = "
+            SELECT CS.SectionNumber, GROUP_CONCAT(DISTINCT CSD.Day SEPARATOR ' ') AS Days,
+                COUNT(DISTINCT E.CWID) AS 'Enrollment Count'
+            FROM Course_Section AS CS
+                JOIN Course_Section_Days AS CSD
+                    ON CS.CourseNumber = CSD.CourseNumber
+                    AND CS.SectionNumber = CSD.SectionNumber
+                JOIN Student_Section_Enrollment AS E
+                    ON CS.CourseNumber = E.CourseNumber
+                    AND CS.SectionNumber = E.SectionNumber
+            WHERE CS.CourseNumber = $course_number
+            GROUP BY CS.SectionNumber;
+            ";
+            try {
+                $grades_resp = $mysqli->query($sql_query);
+                echo format_sql_result($grades_resp);
+                $grades_resp->close();
+                echo "<br><form style='display: inline' method=GET>
+                        <button>Reset</button>
+                      </form>";
+            } catch (Exception $e) {
+                printf("<p>SQL ERROR: %s</p>", $e->getMessage());
+            }
+        } ?>
         <hr>
     </div>
     <form action="sample.php" method="POST">
