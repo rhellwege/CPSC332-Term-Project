@@ -23,4 +23,3 @@ services:
     restart: always
     ports:
       - "3306:3306"
-    # command: sh -c "mysql -h mariadb -u USERNAME -pPASSWORD < /sql/schema.sql; mysql -h mariadb -u USERNAME -pPASSWORD < /sql/insert.sql"

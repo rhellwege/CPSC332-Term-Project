@@ -28,6 +28,7 @@ if ($mysqli->connect_errno) {
         "F j, Y, g:i a"
     ); ?></em></p>
     <a style="text-align:center" href="./test.php">Test page</a>
+    <hr>
     <div>
         <h2 style="text-align:center">Professor Interface</h2>
         <hr>
@@ -55,17 +56,19 @@ if ($mysqli->connect_errno) {
             }
 
             $sql_query = "
-                SELECT C.Title, CS.Classroom, CSD.Day, CS.BeginTime, CS.EndTime
+                SELECT C.Title, CS.Classroom, CS.CourseNumber, CS.SectionNumber,
+                    GROUP_CONCAT(CSD.Day SEPARATOR ' ') AS Days, CS.BeginTime, CS.EndTime
                 FROM
                     Professor AS P JOIN Course_Section AS CS
-                    ON P.Ssn = CS.Professor_Ssn
+                        ON P.Ssn = CS.Professor_Ssn
                     JOIN Course AS C
-                    ON C.CourseNumber = CS.CourseNumber
+                        ON C.CourseNumber = CS.CourseNumber
                     JOIN Course_Section_Days AS CSD
-                    ON CSD.SectionNumber = CS.SectionNumber
-                        AND CSD.CourseNumber = CS.SectionNumber
+                        ON CSD.SectionNumber = CS.SectionNumber
+                        AND CSD.CourseNumber = CS.CourseNumber
                 WHERE
-                P.Ssn = '$professor_ssn';
+                P.Ssn = '$professor_ssn'
+                GROUP BY C.CourseNumber, CS.SectionNumber;
             ";
             try {
                 $meeting_resp = $mysqli->query($sql_query);
