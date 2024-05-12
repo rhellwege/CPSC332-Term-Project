@@ -68,7 +68,7 @@ CREATE TABLE Course_Section (
 
 	FOREIGN KEY (Professor_Ssn) REFERENCES Professor(Ssn),
 	FOREIGN KEY (CourseNumber)  REFERENCES Course(CourseNumber),
-	PRIMARY KEY (CourseNumber, SectionNumber),
+	PRIMARY KEY (CourseNumber, SectionNumber)
 );
 
 CREATE TABLE Course_Section_Days (
