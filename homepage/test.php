@@ -29,7 +29,6 @@ function test_table(mysqli $mysqli, string $table): string
     <h1>Debug / Testing Page</h1>
     <a href="./index.php">Go back</a>
 
-
     <?php if (isset($_POST["sql_query"])) {
         $sql_query = $_POST["sql_query"];
         echo "<h2>Test Output</h2>";
