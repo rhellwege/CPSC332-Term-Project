@@ -76,8 +76,7 @@ CREATE TABLE Course_Section_Days (
 	SectionNumber INT NOT NULL,
 	Day           ENUM('M', 'T', 'W', 'Th', 'F', 'Sa', 'Su'),
 
-	FOREIGN KEY (CourseNumber)  REFERENCES Course_Section(CourseNumber),
-	FOREIGN KEY (SectionNumber) REFERENCES Course_Section(SectionNumber),
+	FOREIGN KEY (CourseNumber, SectionNumber)  REFERENCES Course_Section(CourseNumber, SectionNumber),
 	PRIMARY KEY (CourseNumber, SectionNumber, Day)
 );
 
@@ -113,8 +112,7 @@ CREATE TABLE Student_Section_Enrollment (
 	SectionNumber INT NOT NULL,
 	Grade         ENUM('A', 'A-', 'A+', 'B', 'B-', 'B+', 'C', 'C-', 'C+', 'D', 'D-', 'D+', 'F'),
 
-	FOREIGN KEY (CWID)          REFERENCES Student(CWID),
-	FOREIGN KEY (CourseNumber)  REFERENCES Course_Section(CourseNumber),
-	FOREIGN KEY (SectionNumber) REFERENCES Course_Section(SectionNumber),
+	FOREIGN KEY (CWID)                        REFERENCES Student(CWID),
+	FOREIGN KEY (CourseNumber, SectionNumber) REFERENCES Course_Section(CourseNumber, SectionNumber),
 	PRIMARY KEY(CWID, CourseNumber, SectionNumber)
 );

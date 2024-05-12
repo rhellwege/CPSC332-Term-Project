@@ -147,7 +147,8 @@ if ($mysqli->connect_errno) {
                 printf("<p>SQL ERROR: %s</p>", $e->getMessage());
             }
             $sql_query = "
-            SELECT CS.SectionNumber, GROUP_CONCAT(DISTINCT CSD.Day SEPARATOR ' ') AS Days,
+            SELECT CS.SectionNumber, CS.Classroom, CS.BeginTime, CS.EndTime,
+                GROUP_CONCAT(DISTINCT CSD.Day SEPARATOR ' ') AS Days,
                 COUNT(DISTINCT E.CWID) AS 'Enrollment Count'
             FROM Course_Section AS CS
                 JOIN Course_Section_Days AS CSD
@@ -172,9 +173,5 @@ if ($mysqli->connect_errno) {
         } ?>
         <hr>
     </div>
-    <form action="sample.php" method="POST">
-	Enter First Name: <input type="text" name="fname">
-	<input type="submit">
-	</form>
 </body>
 </html>
