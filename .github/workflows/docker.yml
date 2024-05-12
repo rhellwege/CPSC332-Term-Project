@@ -17,7 +17,7 @@ jobs:
         run: git pull
 
       - name: Stop existing containers
-        run: docker-compose down
+        run: sudo docker-compose down
 
       - name: Start containers
-        run: docker-compose up -d
+        run: sudo docker-compose up -d
