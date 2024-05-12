@@ -58,8 +58,8 @@ CREATE TABLE Course_Prerequisites (
 );
 
 CREATE TABLE Course_Section (
-	SectionNumber INT NOT NULL,
 	CourseNumber  INT NOT NULL,
+	SectionNumber INT NOT NULL,
 	Professor_Ssn CHAR(9),
 	Classroom     VARCHAR(255),
 	Seats         INT,
@@ -68,8 +68,7 @@ CREATE TABLE Course_Section (
 
 	FOREIGN KEY (Professor_Ssn) REFERENCES Professor(Ssn),
 	FOREIGN KEY (CourseNumber)  REFERENCES Course(CourseNumber),
-	PRIMARY KEY (SectionNumber, CourseNumber),
-	UNIQUE  KEY (SectionNumber, CourseNumber)
+	PRIMARY KEY (CourseNumber, SectionNumber),
 );
 
 CREATE TABLE Course_Section_Days (

@@ -13,9 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Pull latest changes
-        run: git pull
-
       - name: Stop existing containers
         run: sudo docker-compose down
 
