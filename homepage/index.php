@@ -172,6 +172,45 @@ if ($mysqli->connect_errno) {
             }
         } ?>
         <hr>
+        <h3>Student Information</h3>
+        <p>
+            See the courses and grades for a student given their CWID.
+        </p>
+        <form method=POST>
+            <em>Enter Student CWID: </em><br><input type = "text" name="stu_cwid" placeholder="1"></input><br><br>
+                <input type="submit">
+        </form>
+        <?php if (isset($_POST["stu_cwid"])) {
+            $cwid = $_POST["stu_cwid"];
+            $stu_name_query = "SELECT FirstName, LastName FROM Student WHERE CWID = $cwid";
+            try {
+                $stu_name_resp = $mysqli->query($stu_name_query);
+                $row = $stu_name_resp->fetch_assoc();
+                $stu_first_name = $row["FirstName"];
+                $stu_last_name = $row["LastName"];
+                echo "<h3>Results for Student $stu_first_name $stu_last_name ($cwid)</h3>";
+                $stu_name_resp->close();
+            } catch (Exception $e) {
+                printf("<p>SQL ERROR: %s</p>", $e->getMessage());
+            }
+            $sql_query = "
+            SELECT SSE.CourseNumber, SSE.SectionNumber, SSE.Grade
+            FROM Student_Section_Enrollment AS SSE
+            WHERE SSE.CWID = $cwid
+            ";
+            try {
+                $stu_class_resp = $mysqli->query($sql_query);
+                echo format_sql_result($stu_class_resp);
+                $stu_class_resp->close();
+                echo "<br><form style='display: inline' method=GET>
+                        <button>Reset</button>
+                      </form>";
+            } catch (Exception $e) {
+                printf("<p>SQL ERROR: %s</p>", $e->getMessage());
+            }
+        } ?>
+        <hr>
+
     </div>
 </body>
 </html>
