@@ -194,8 +194,9 @@ if ($mysqli->connect_errno) {
                 printf("<p>SQL ERROR: %s</p>", $e->getMessage());
             }
             $sql_query = "
-            SELECT SSE.CourseNumber, SSE.SectionNumber, SSE.Grade
+            SELECT SSE.CourseNumber, SSE.SectionNumber, C.Title, SSE.Grade
             FROM Student_Section_Enrollment AS SSE
+                JOIN Course AS C ON SSE.CourseNumber = C.CourseNumber
             WHERE SSE.CWID = $cwid
             ";
             try {
