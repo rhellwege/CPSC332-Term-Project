@@ -56,22 +56,19 @@ if ($mysqli->connect_errno) {
             }
 
             $sql_query = "
-                SELECT Title, Classroom, Days, BeginTime, EndTime
-                FROM (
-                    SELECT CS.CourseNumber, CS.SectionNumber, C.Title, CS.Classroom,
-                        GROUP_CONCAT(CSD.Day SEPARATOR ' ') AS Days, CS.BeginTime, CS.EndTime
-                    FROM
-                        Professor AS P JOIN Course_Section AS CS
-                            ON P.Ssn = CS.Professor_Ssn
-                        JOIN Course AS C
-                            ON CS.CourseNumber = C.CourseNumber
-                        JOIN Course_Section_Days AS CSD
-                            ON CSD.SectionNumber = CS.SectionNumber
-                            AND CSD.CourseNumber = CS.CourseNumber
-                    WHERE
-                        P.Ssn = '$professor_ssn'
-                    GROUP BY C.CourseNumber, CS.SectionNumber
-                ) AS Subquery;
+                SELECT CS.CourseNumber, CS.SectionNumber, C.Title, CS.Classroom,
+                    GROUP_CONCAT(CSD.Day SEPARATOR ' ') AS Days, CS.BeginTime, CS.EndTime
+                FROM
+                    Professor AS P JOIN Course_Section AS CS
+                        ON P.Ssn = CS.Professor_Ssn
+                    JOIN Course AS C
+                        ON CS.CourseNumber = C.CourseNumber
+                    JOIN Course_Section_Days AS CSD
+                        ON CSD.SectionNumber = CS.SectionNumber
+                        AND CSD.CourseNumber = CS.CourseNumber
+                WHERE
+                    P.Ssn = '$professor_ssn'
+                GROUP BY C.CourseNumber, CS.SectionNumber
             ";
             try {
                 $meeting_resp = $mysqli->query($sql_query);
