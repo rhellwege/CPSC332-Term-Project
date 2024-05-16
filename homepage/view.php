@@ -1,5 +1,5 @@
 <?php
-// Accepts  SQL query result and returns the result in a cusomized HTML <table>
+// Accepts  SQL query result and returns the result in a customized HTML <table>
 // Automatically fills column headers as the field names of the query result
 // Returns HTML string
 function format_sql_result(mysqli_result $result): string
